@@ -53,7 +53,7 @@
     ```bash
     npm start
     ```
-4. **Open `src/index.html` directly for a static preview.**
+4. **Open `index.html` directly for a static preview.**
 
 ### Deploying to GitHub Pages
 
@@ -61,25 +61,6 @@
     ```
     https://yourusername.github.io/weatherscope-tamilnadu/
     ```
-
-***
-
-## Project Structure
-
-```
-weatherscope-tamilnadu/
-├── src/
-│   ├── index.html
-│   ├── style.css
-│   ├── app.js
-├── docs/
-│   ├── project-report.pdf
-│   └── user-guide.md
-├── package.json
-├── README.md
-└── .env.example
-```
-
 ***
 
 ## Technologies Used
@@ -123,3 +104,4 @@ For questions, feedback, or requesting features, raise an issue or email the pro
 ***
 
 > “WeatherScope Tamil Nadu” delivers culturally relevant, life-saving weather intelligence for coastal Tamil Nadu—empowering users with clarity, safety, and foresight, every day.
+
