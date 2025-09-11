@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>தூத்துக்குடி வானிலை | Thoothukudi Weather</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header with Location Selector -->
+        <header class="app-header">
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="app-title">
+                        <span class="title-tamil">தமிழ்நாடு வானிலை</span>
+                        <span class="title-english">Tamil Nadu Weather</span>
+                    </h1>
+                    <div class="location-selector">
+                        <select id="locationSelect" class="form-control location-dropdown">
+                            <option value="thoothukudi">தூத்துக்குடி (Thoothukudi)</option>
+                            <option value="chennai">சென்னை (Chennai)</option>
+                            <option value="tirunelveli">திருநெல்வேலி (Tirunelveli)</option>
+                            <option value="madurai">மதுரை (Madurai)</option>
+                            <option value="kanyakumari">கன்னியாகுமரி (Kanyakumari)</option>
+                            <option value="rameswaram">இராமேசுவரம் (Rameswaram)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="container">
+                <!-- Weather Alerts -->
+                <div class="alerts-section">
+                    <h2 class="section-title">
+                        <span class="title-tamil">எச்சரிக்கைகள்</span>
+                        <span class="title-english">Weather Alerts</span>
+                    </h2>
+                    <div class="alerts-container" id="alertsContainer">
+                        <!-- Alerts will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Current Weather Dashboard -->
+                <div class="current-weather-section">
+                    <div class="current-weather-card card">
+                        <div class="current-weather-main">
+                            <div class="temperature-display">
+                                <span class="current-temp" id="currentTemp">31</span>
+                                <span class="temp-unit">°C</span>
+                            </div>
+                            <div class="weather-condition">
+                                <div class="condition-icon" id="conditionIcon">⛅</div>
+                                <div class="condition-text">
+                                    <div class="condition-main" id="conditionMain">Partly Cloudy</div>
+                                    <div class="feels-like">Feels like <span id="feelsLike">38</span>°C</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="weather-details-grid">
+                            <div class="weather-detail">
+                                <div class="detail-label">Humidity | ஈரப்பதம்</div>
+                                <div class="detail-value" id="humidity">67%</div>
+                            </div>
+                            <div class="weather-detail">
+                                <div class="detail-label">Wind | காற்று</div>
+                                <div class="detail-value" id="wind">12 km/h SW</div>
+                            </div>
+                            <div class="weather-detail">
+                                <div class="detail-label">Pressure | அழுத்தம்</div>
+                                <div class="detail-value" id="pressure">1003 mb</div>
+                            </div>
+                            <div class="weather-detail">
+                                <div class="detail-label">UV Index | UV குறியீடு</div>
+                                <div class="detail-value" id="uvIndex">8 (High)</div>
+                            </div>
+                            <div class="weather-detail">
+                                <div class="detail-label">Sunrise | சூரிய உதயம்</div>
+                                <div class="detail-value" id="sunrise">06:07</div>
+                            </div>
+                            <div class="weather-detail">
+                                <div class="detail-label">Sunset | சூரிய அஸ்தமனம்</div>
+                                <div class="detail-value" id="sunset">06:20</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marine Weather -->
+                <div class="marine-weather-section">
+                    <h2 class="section-title">
+                        <span class="title-tamil">கடல் வானிலை</span>
+                        <span class="title-english">Marine Weather</span>
+                    </h2>
+                    <div class="marine-weather-card card">
+                        <div class="marine-details-grid">
+                            <div class="marine-detail">
+                                <div class="detail-label">Sea Condition | கடல் நிலை</div>
+                                <div class="detail-value" id="seaCondition">Rough</div>
+                            </div>
+                            <div class="marine-detail">
+                                <div class="detail-label">Wave Height | அலை உயரம்</div>
+                                <div class="detail-value" id="waveHeight">2-3 meters</div>
+                            </div>
+                            <div class="marine-detail">
+                                <div class="detail-label">Wind Speed | காற்றின் வேகம்</div>
+                                <div class="detail-value" id="marineWindSpeed">45-55 kmph</div>
+                            </div>
+                            <div class="marine-detail">
+                                <div class="detail-label">Visibility | தெரிவுத்தன்மை</div>
+                                <div class="detail-value" id="visibility">Moderate</div>
+                            </div>
+                        </div>
+                        <div class="marine-advice" id="marineAdvice">
+                            Fishermen advised not to venture into sea
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Air Quality -->
+                <div class="air-quality-section">
+                    <h2 class="section-title">
+                        <span class="title-tamil">காற்று தரம்</span>
+                        <span class="title-english">Air Quality</span>
+                    </h2>
+                    <div class="air-quality-card card">
+                        <div class="aqi-display">
+                            <div class="aqi-value" id="aqiValue">78</div>
+                            <div class="aqi-category" id="aqiCategory">Moderate</div>
+                        </div>
+                        <div class="air-quality-details">
+                            <div class="pollutant">
+                                <span class="pollutant-name">PM2.5</span>
+                                <span class="pollutant-value" id="pm25">45 μg/m³</span>
+                            </div>
+                            <div class="pollutant">
+                                <span class="pollutant-name">PM10</span>
+                                <span class="pollutant-value" id="pm10">68 μg/m³</span>
+                            </div>
+                        </div>
+                        <div class="air-quality-advice" id="airQualityAdvice">
+                            Air quality is acceptable for most people
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hourly Forecast -->
+                <div class="hourly-forecast-section">
+                    <h2 class="section-title">
+                        <span class="title-tamil">மணிநேர முன்கணிப்பு</span>
+                        <span class="title-english">Hourly Forecast</span>
+                    </h2>
+                    <div class="hourly-forecast-container" id="hourlyForecastContainer">
+                        <!-- Hourly forecast will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- 7-Day Forecast -->
+                <div class="weekly-forecast-section">
+                    <h2 class="section-title">
+                        <span class="title-tamil">7 நாள் முன்கணிப்பு</span>
+                        <span class="title-english">7-Day Forecast</span>
+                    </h2>
+                    <div class="weekly-forecast-container" id="weeklyForecastContainer">
+                        <!-- Weekly forecast will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Weather Map Toggle -->
+                <div class="weather-maps-section">
+                    <h2 class="section-title">
+                        <span class="title-tamil">வானிலை வரைபடம்</span>
+                        <span class="title-english">Weather Maps</span>
+                    </h2>
+                    <div class="map-toggle-buttons">
+                        <button class="btn btn--secondary map-toggle active" data-map="rainfall">
+                            Rainfall | மழை
+                        </button>
+                        <button class="btn btn--secondary map-toggle" data-map="temperature">
+                            Temperature | வெப்பநிலை
+                        </button>
+                    </div>
+                    <div class="weather-map-container card">
+                        <div class="map-placeholder" id="weatherMapPlaceholder">
+                            <div class="map-info">
+                                <div class="map-title" id="mapTitle">Rainfall Radar</div>
+                                <div class="map-description">Live rainfall data for Tamil Nadu region</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="app-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2025 Tamil Nadu Weather App | Data from Indian Meteorological Department</p>
+                    <p>Last updated: <span id="lastUpdated">Sep 11, 2025 7:00 PM IST</span></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
